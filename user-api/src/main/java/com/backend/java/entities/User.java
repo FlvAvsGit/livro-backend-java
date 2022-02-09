@@ -18,8 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -32,14 +31,15 @@ public class User implements Serializable {
 	private String telefone;
 	private Date dataCadastro;
 
-	public static User convert (UserDto userDto) {
-		User user = new User();
-		user.setNome(userDto.getNome());
-		user.setCpf(userDto.getCpf());
-		user.setEndereco(userDto.getEndereco());
-		user.setEmail(userDto.getEmail());
-		user.setTelefone(userDto.getTelefone());
-		user.setDataCadastro(userDto.getDataCadastro());
-		return user;
+	public User(UserDto userDto) {
+		this.setNome(userDto.getNome());
+		this.setCpf(userDto.getCpf());
+		this.setEndereco(userDto.getEndereco());
+		this.setEmail(userDto.getEmail());
+		this.setTelefone(userDto.getTelefone());
+		this.setDataCadastro(userDto.getDataCadastro());
+	}
+
+	public User() {
 	}
 }

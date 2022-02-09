@@ -11,8 +11,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class UserDto {
 	private Long id;
 	private String nome;
@@ -30,16 +29,19 @@ public class UserDto {
 		this.telefone = user.getTelefone();
 		this.dataCadastro = user.getDataCadastro();
 	}
-	
-	public static UserDto convert (User user) {
-		UserDto userDto = new UserDto();
-		userDto.setNome(user.getNome());
-		userDto.setCpf(user.getCpf());
-		userDto.setEndereco(user.getEndereco());
-		userDto.setEmail(user.getEmail());
-		userDto.setTelefone(user.getTelefone());
-		userDto.setDataCadastro(user.getDataCadastro());
-			return userDto;
-			}
+
+	public UserDto() {
+	}
+
+//	public UserDto convert (User user) {
+//		UserDto userDto = new UserDto();
+//		this.setNome(user.getNome());
+//		this.setCpf(user.getCpf());
+//		this.setEndereco(user.getEndereco());
+//		this.setEmail(user.getEmail());
+//		this.setTelefone(user.getTelefone());
+//		this.setDataCadastro(user.getDataCadastro());
+//			return userDto;
+//			}
 
 }
