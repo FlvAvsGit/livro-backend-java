@@ -1,5 +1,6 @@
 package com.backend.java.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,20 @@ public class UserService {
 
 	public User findById(Long id) {
 		Optional<User> user = userRepository.findById(id);
-		return user.orElseThrow(() -> new ObjectNotFndException("Objeto não encontrado. id: " + id + ",Tipo: " + User.class.getName()));
+		return user.orElseThrow(
+				() -> new ObjectNotFndException("Objeto não encontrado. id: " + id + ",Tipo: " + User.class.getName()));
+	}
+
+	public List<User> findAll() {
+		return userRepository.findAll();
+	}
+
+	public void deleteId(Long id) {
+//		User obj = findById(id);
+		Optional<User> obj1 = userRepository.findById(id);
+		if (obj1.isPresent()) {
+			userRepository.deleteById(id);
+		}
 	}
 
 //	public List<UserDto> findAll() {
